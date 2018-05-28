@@ -59,17 +59,18 @@ const getNumberOfNeighborBombs = (bombBoard, rowIndex, columnIndex) => {
     const neighborColumnIndex = columnIndex + offset[1];
 
     if (neighborRowIndex >= 0 &&
-       neighborRowIndex < rowIndex &&
+       neighborRowIndex < numberOfRows &&
        neighborColumnIndex >=0 &&
-       neighborColumnIndex < columnIndex) {
+       neighborColumnIndex < numberOfColumns) {
+
+         if (bombBoard[neighborRowIndex] == 'B' &&
+          bombBoard[neighborColumnIndex] == 'B' ||
+          bombBoard[neighborRowIndex][neighborColumnIndex] == 'B') {
+           numberOfBombs++;
+
+         };
     };
 
-    if (bombBoard[neighborRowIndex] == 'B' &&
-     bombBoard[neighborColumnIndex] == 'B' ||
-     bombBoard[neighborRowIndex][neighborColumnIndex] == 'B') {
-      numberOfBombs++;
-
-    };
   });
 
   return numberOfBombs;
@@ -106,17 +107,6 @@ printBoard(playerBoard);
 console.log('Bomb Board: ');
 printBoard(bombBoard);
 
-//console.log(printBoard(generatePlayerBoard(4, 3)));
-
-/*
-let board = [
-  [' ', ' ', ' '],
-  [' ', ' ', ' '],
-  [' ', ' ', ' ']
-];
-
-printBoard(board);
-board[0][1] = '1';
-board[2][2] = 'B';
-printBoard(board);
-*/
+flipTile(playerBoard, bombBoard, 0, 0);
+console.log('Updated Player Board: ');
+printBoard(playerBoard);
