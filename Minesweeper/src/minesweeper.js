@@ -70,12 +70,12 @@ const getNumberOfNeighborBombs = (bombBoard, rowIndex, columnIndex) => {
       numberOfBombs++;
 
     };
-   });
+  });
 
   return numberOfBombs;
 };
 
-const
+const test
 
 const printBoard = (board) => {
   board.map(func = (row) => {
