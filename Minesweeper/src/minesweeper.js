@@ -75,7 +75,17 @@ const getNumberOfNeighborBombs = (bombBoard, rowIndex, columnIndex) => {
   return numberOfBombs;
 };
 
-const test
+const flipTile = (playerBoard, bombBoard, rowIndex, columnIndex) => {
+  if (playerBoard[rowIndex][columnIndex] !== ' ') {
+    console.log('This tile has already been flipped!');
+    return;
+  } else if (bombBoard[rowIndex][columnIndex] == 'B') {
+    playerBoard[rowIndex][columnIndex] = 'B';
+  } else {
+    playerBoard[rowIndex][columnIndex] =
+     getNumberOfNeighborBombs(bombBoard, rowIndex, columnIndex);
+  };
+};
 
 const printBoard = (board) => {
   board.map(func = (row) => {
@@ -85,11 +95,6 @@ const printBoard = (board) => {
 //  const printBoard = board => {
 //  console.log(board.map(row => row.join(' | ')).join('\n'));
 // };
-
-  //console.log(board[0].join(' | '));
-  //console.log(board[1].join(' | '));
-  //console.log(board[2].join(' | '));
-
 };
 
 const playerBoard = generatePlayerBoard(3, 4);
