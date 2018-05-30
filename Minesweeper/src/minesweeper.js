@@ -8,7 +8,7 @@ class Game {
     if(this._board.playerBoard[rowIndex][columnIndex] == 'B') {
       console.log('Boom, the game is over!');
       this._board.print();
-    } if else (this._board.hasSafeTiles()) {
+    } else if (this._board.hasSafeTiles()) {
       console.log("No more tiles! You've won!");
     } else {
       console.log('Current Board: ');
