@@ -22,10 +22,10 @@ class Board {
   constructor(numberOfRows, numberOfColumns, numberOfBombs) {
     this._numberOfBombs = numberOfBombs;
     this._numberOfTiles = numberOfRows * numberOfColumns;
-    this._playerBoard = Board.generatePlayerBoard(
-      numberOfRows, numberOfColumns);
-    this._bombBoard = Board.generateBombBoard(
-      numberOfRows, numberOfColumns, numberOfBombs);
+    this._playerBoard = Board.generatePlayerBoard(numberOfRows,
+       numberOfColumns);
+    this._bombBoard = Board.generateBombBoard(numberOfRows,
+       numberOfColumns, numberOfBombs);
   }
 
   get playerBoard() {
@@ -93,14 +93,15 @@ class Board {
       return this._numberOfTiles !== this._numberOfBombs;
     };
 
+/*
     print(board) {
       board.map(func = (row) => {
         console.log(row.join(' | '));
       }).join('\n');
     };
-
-    const printBoard = board => {
-      console.log(board.map(row => row.join(' | ')).join('\n'));
+*/
+    print() {
+      console.log(this._playerBoard.map(row => row.join(' | ')).join('\n'));
     };
 
 
@@ -108,7 +109,7 @@ class Board {
 
      const board = [];
       for (let i = 0; i < numberOfRows; i++) {
-        const row = [];
+        let row = [];
         for (let k = 0; k < numberOfColumns; k++) {
         row.push(' ');
         }
@@ -122,7 +123,7 @@ class Board {
 
      const board = [];
       for (let i = 0; i < numberOfRows; i++) {
-        const row = [];
+        let row = [];
         for (let k = 0; k < numberOfColumns; k++) {
         row.push(null);
         }
