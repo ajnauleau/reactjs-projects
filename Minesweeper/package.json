@@ -1,0 +1,29 @@
+{
+  "name": "minesweeper-ca",
+  "version": "1.0.0",
+  "description": "Minesweeper CLI Game",
+  "main": "src/game.js",
+  "scripts": {
+    "test": "node",
+    "build": "babel src -d lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ajnauleau/Reactjs-Projects/tree/mine/Minesweeper/src/"
+  },
+  "keywords": [
+    "minesweeper",
+    "codeacademy",
+    "node"
+  ],
+  "author": "Antoine *@findantoine",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  },
+  "dependencies": {},
+  "directories": {
+    "lib": "lib"
+  }
+}
