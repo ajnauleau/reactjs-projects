@@ -1,4 +1,10 @@
 
+<div class="SearchBar">
+  <input placeholder="Enter A Song, Album, or Artist" />
+  <a>SEARCH</a>
+</div>
+
+
 
 const url = `https://api.spotify.com/v1/search?q=${input}&type=track`
   -H "Authorization: Bearer {your access token}"
