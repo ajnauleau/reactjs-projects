@@ -1,51 +1,39 @@
 
-<div class="SearchBar">
-  <input placeholder="Enter A Song, Album, or Artist" />
-  <a>SEARCH</a>
-</div>
+import React { Component }from 'react';
+import 'Search.css';
+import Spotify from '../../utility/';
+
+class Search extends Component {
+
+    constructor(props) {
+      super(props);
+      this.state = {
+        items = [];
+      };
+      this.searchSpotify = this.searchSpotify.bind(this);
+    }
+
+    searchSpotify(this.props.input) {
+      Spotify.search(input).then(items => {
+        this.setState({items: items});
+    }
+
+    render() {
+      return(
+        <div class="SearchBar">
+          <input placeholder="Enter A Song, Album, or Artist" />
+          <a>SEARCH</a>
+        </div>
+      );
+    }
+
+};
 
 
 
-const url = `https://api.spotify.com/v1/search?q=${input}&type=track`
-  -H "Authorization: Bearer {your access token}"
-
-Song
-
-Base URL: https://api.spotify.com/v1
-
-GET 	/v1/tracks/{id} 	Get a Track 	track
-
-return JSON.object
-
-{
-  tracks.items.name:
-}
-
-Album
-
-Base URL: https://api.spotify.com/v1
-
-GET 	/v1/albums/{id} 	Get an Album 	album
-
-return JSON.object
-
-{
- name:
-}
 
 
-Artist
-
-Base URL: https://api.spotify.com/v1
-
-GET 	/v1/artists/{id} 	Get an Artist artist
-
-return JSON.object
-
-{
-artists.name
-}
-
+//ALBUM QUERY Results
 
 {
   "album_type" : "album",
