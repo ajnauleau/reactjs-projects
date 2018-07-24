@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import '../utility/Spotify.js';
+import '../../utility/Spotify.js';
 
 class App extends Component {
 
@@ -86,8 +86,7 @@ async search(term) {
         <h1>Col<span class="highlight">lec</span>tive</h1>
         <div className="App">
 
-          <!-- Add a Search component -->
-          <Search  artist={this.state.artist} track={this.state.track}
+          <Search artist={this.state.artist} track={this.state.track}
              album={this.state.album} input={this.state.input}
              onSearch={this.search()} />
 
@@ -97,11 +96,9 @@ async search(term) {
 
           <div className="App-playlist">
 
-            <!-- Add a Results component -->
             <Results searchResults={this.state.searchResults}
                onAdd={this.addTrack()} />
 
-            <!-- Add a Playlist component -->
             <Playlist playlistName={this.state.playlistName}
                   playlistTracks={this.state.playlistTracks}
                   onRemove={this.removeTrack()}
