@@ -1,10 +1,87 @@
 
+//import { Authentication } from '../authentication/authentication.js';
+import { ClientID } from '../../.private/ClientID.js';
+
+const accessToken = '';
+const expiresIn = '';
+const url = 'https://accounts.spotify.com/authorize';
+
 const Spotify = {
+
+  getAccessToken() {
+
+      if (accessToken !== '') {
+
+        console.log('Access token was already set.');
+        return accessToken;
+
+      } elseif (window.location.href.match('/access_token=([^&]*)/') &&
+          window.location.href.match('/expires_in=([^&]*)/')) {
+
+        accessToken = window.location.href.match('/access_token=([^&]*)/');
+        expiresIn = window.location.href.match('/expires_in=([^&]*)/');
+
+        window.setTimeout(() => accessToken = '', expiresIn * 1000);
+        window.history.pushState('Access Token', null, '/');
+
+        const accessParams = {
+          accessToken: accessToken,
+          expiresIn: expiresIn
+        };
+
+        return accessParams;
+
+      } else {
+
+
+        async function getKeys() {
+
+          const scopes = "user-read-private playlist-read-private \
+            playlist-modify-public playlist-modify-private playlist-read-collaborative";
+          const redirectURI = 'http://localhost:3000/';
+          const requestURL = url + '?response_type=code' + '&client_id=' + ClientID +
+            (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
+            '&redirect_uri=' + encodeURIComponent(redirectURI));
+
+            //window.location = requestURL;
+
+          try {
+
+            const reponse = await fetch(requestURL);
+
+              if (response.ok) {
+
+                const jsonResponse = await response.json();
+                const parsedAccessToken = jsonResponse.match('/access_token=([^&]*)/');
+                const parsedExpiresIn = jsonResponse.match('/expires_in=([^&]*)/');
+
+                return accessToken = parsedAccessToken;
+                return expiresIn = parsedExpiresIn;
+
+                const accessParams = {
+                  accessToken: parsedAccessToken,
+                  expiresIn: parsedExpiresIn
+                };
+
+                return accessParams;
+
+              }
+
+              throw new Error('Request Failed');
+
+          } catch (error) {
+
+            console.log(error);
+
+          }
+        }
+      }
+    };
+
   search(input) {
     const url = `https://api.spotify.com/v1/search?q=${input}
       &type=track&limit=10`;
-    const apiKey = '';
-
+    const apiKey = accessToken;
     return fetch(url, {
       headers: {
         Authorization: `Bearer ${apiKey}`
@@ -14,18 +91,164 @@ const Spotify = {
       }).then(jsonResponse => {
         if(jsonResponse.tracks.items) {
           return jsonResponse.tracks.items.map(item => ({
+            id: item.id,
+            uri: item.uri,
+            name: item.name,
             track: item.uri,
             trackName: item.name,
-            album: item.album.uri,
+            album: item.album.name,
+            albumURI: item.album.uri,
             albumName: item.album.name,
-            artist: item.artists.0.uri,
-            artistName: item.artists.0.name
+            artist: item.artists[0].name,
+            artistURI: item.artists[0].uri,
+            artistName: item.artists[0].name
         }));
-       }
+      } else {
+        return [];
+      }
      });
+   }
 
-   })
+savePlaylist(playlistName, URIs) {
 
+  if(playlistName && URIs == true) {
+
+    const apiKey = this.getAccessToken();
+    const headers = Authorization: `Bearer ${apiKey}`;
+    const UserID = '';
+
+    const url = 'https://api.spotify.com/v1/me';
+    fetch(url, {
+      headers: {
+        Authorization: `Bearer ${apiKey}`
+      }
+    }).then(response => {
+      if(response.ok) {
+        return response.json();
+      }
+      throw new Error('Request failed!');
+    }, networkError => {
+      console.log(networkError.message);
+    }).then(jsonResponse => {
+      UserID = jsonResponse.id;
+    	return jsonResponse.display_name;
+    });
+
+    async createdNewPlaylist(playlistName) {
+      const url = `https://api.spotify.com/v1/\
+        users/${UserID}/playlists`
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          body :
+          {
+            "name": playlistName,
+            "public": false
+          },
+          headers: {
+            Content-Type: application/json,
+            Authorization: Bearer
+          }
+        });
+        if (response.ok) {
+            const jsonResponse = await response.json();
+            const playlistID = jsonResponse.id;
+            return jsonResponse;
+        }
+         throw new Error('Request Failed!');
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    async updatedPlaylistTracks(URIs) {
+      const url = `https://api.spotify.com/v1/\
+          users/${UserID}/playlists/${playlistID}/tracks`;
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          body: URIs,
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+            Content-Type: application/json
+          }
+        });
+        if (response.ok) {
+          const jsonResponse = await response.json();
+          return jsonResponse;
+        }
+        throw new Error('Request Failed!');
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    async updatedPlaylistName(playlistName) {
+      const url = `https://api.spotify.com/v1/\
+          users/${userID}/playlists/${playlistID}`;
+      try {
+        const response = await fetch('url', {
+          method: 'PUT',
+          body:
+          {
+            "name": playlistName,
+            "public": false
+          },
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+            Content-Type: application/json
+          }
+        });
+        if (response.ok) {
+          const jsonResponse = await response.json();
+          return jsonResponse;
+        }
+        throw new Error('Request Failed!');
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    async RemoveFromPlaylist(URIs) {
+      const url = `https://api.spotify.com/v1/\
+          users/${userID}/playlists/${playlistID}`;
+      try {
+        const arrayURIs = []
+        URIs.map(uri => {
+          arrayURIs.push({
+            "uri": uri
+          });
+        });
+        const response = await fetch('url', {
+          method: 'DELETE',
+          body :
+            {
+              "tracks": arrayURIs
+            },
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+            Content-Type: application/json
+          }
+        });
+        if (response.ok) {
+          const jsonResponse = await response.json();
+          return jsonResponse;
+        }
+        throw new Error('Request Failed!');
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+  } else {
+    return;
+  };
+ }
+};
+
+ export default Spotify;
+
+/*
   const apiCall = async() => {
     try {
       makeCall = await fetch(url, {
@@ -61,38 +284,7 @@ const Spotify = {
 
 export default Spotify;
 
-const Yelp = {
-  search(term, location, sortBy) {
 
-    // const url = `https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}`;
-    // const CORS = "https://cors-anywhere.herokuapp.com/";
-    // const urlAppended = CORS + url;
-
-    return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=
-      ${term}&location=${location}&sort_by=${sortBy}`, {
-      headers: {
-        Authorization: `Bearer ${apiKey}`
-      }
-    }).then(response => {
-      return response.json();
-    }).then(jsonResponse => {
-      if(jsonResponse.businesses) {
-          return jsonResponse.businesses.map(business => ({
-            id: business.id,
-            imageSrc: business.image_url,
-            term: business.name,
-            address: business.location.address1,
-            city:  business.location.city,
-            state:  business.location.state,
-            zipCode:  business.location.zip_code,
-            category: business.categories[0].title,
-            rating: business.rating,
-            reviewCount:  business.review_count
-        }));
-      }
-    });
-  }
-};
 
 
   Song
