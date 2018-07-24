@@ -1,6 +1,6 @@
 import { ClientID } from '../../.private/ClientID.js';
 
-const accessToken = '';
+let accessToken = '';
 const expiresIn = '';
 const url = 'https://accounts.spotify.com/authorize';
 
@@ -56,10 +56,6 @@ const Spotify = {
           const parsedAccessToken = jsonResponse.match(
             '/access_token=([^&]*)/'
           );
-          const accessParams = {
-            accessToken: parsedAccessToken,
-            expiresIn: parsedExpiresIn
-          };
 
           return (accessToken = parsedAccessToken[1]);
         }
@@ -107,8 +103,9 @@ const Spotify = {
   async savePlaylist(playlistName, URIs) {
     if (playlistName && URIs == true) {
       const apiKey = this.getAccessToken();
-      const headers = 'Authorization: `Bearer ${apiKey}`';
-      const UserID = '';
+      const headers = { Authorization: `Bearer ${apiKey}` };
+      let UserID = '';
+      let PlaylistID = '';
 
       const url = 'https://api.spotify.com/v1/me';
       fetch(url, {
@@ -144,12 +141,12 @@ const Spotify = {
             },
             headers: {
               'Content-Type': 'application/json',
-              Authorization: Bearer
+              Authorization: 'Bearer'
             }
           });
           if (response.ok) {
             const jsonResponse = await response.json();
-            const playlistID = jsonResponse.id;
+            const PlaylistID = jsonResponse.id;
             return jsonResponse;
           }
           throw new Error('Request Failed!');
@@ -160,7 +157,7 @@ const Spotify = {
 
       async function updatedPlaylistTracks(URIs) {
         const url = `https://api.spotify.com/v1/\
-          users/${UserID}/playlists/${playlistID}/tracks`;
+          users/${UserID}/playlists/${PlaylistID}/tracks`;
         try {
           const response = await fetch(url, {
             method: 'POST',
@@ -182,7 +179,7 @@ const Spotify = {
 
       async function updatedPlaylistName(playlistName) {
         const url = `https://api.spotify.com/v1/\
-          users/${userID}/playlists/${playlistID}`;
+          users/${UserID}/playlists/${PlaylistID}`;
         try {
           const response = await fetch('url', {
             method: 'PUT',
@@ -207,7 +204,7 @@ const Spotify = {
 
       async function RemoveFromPlaylist(URIs) {
         const url = `https://api.spotify.com/v1/\
-          users/${UserID}/playlists/${playlistID}`;
+          users/${UserID}/playlists/${PlaylistID}`;
         try {
           const arrayURIs = [];
           URIs.map(uri => {

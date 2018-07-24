@@ -1,23 +1,24 @@
 
-var userID = require('../../.private/userid.js').userID;
+var ClientID = require('../../.private/clientsid.js').ClientID;
 require('./implicit_grant/app.js');
 
-const my_client_id = userID;
+var my_client_id = ClientID;
+var redirect_uri = 'https://spotify.com/';
 
-const Authentication = {
+var Authentication = {
   Spotify() {
-    app.get('/implicit_grant', function(req, res) {
+    app.get('/login', function(req, res) {
     var scopes = "user-read-private user-read-email \
         playlist-read-private playlist-modify-public \
         playlist-modify-private playlist-read-collaborative";
     res.redirect('https://accounts.spotify.com/authorize' +
       '?response_type=code' +
-      '&client_id=' + my_client_id +
+      '&client_id=' + ClientID +
       (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
       '&redirect_uri=' + encodeURIComponent(redirect_uri));
     });
   }
-}
+};
 
 module.exports = {
   Authentication: Authentication,
