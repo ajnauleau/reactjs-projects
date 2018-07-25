@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
 import './Search.css';
-import Spotify from '../../utility/Spotify.js';
 
 class Search extends Component {
 
@@ -10,22 +9,13 @@ class Search extends Component {
       this.state = {
         items: []
       };
-      this.searchSpotify = this.searchSpotify.bind(this);
       this.search = this.search.bind(this);
       this.handleTermChange = this.handleTermChange.bind(this);
     }
 
-//    searchResult = this.props.search;
-//    input = this.props.input;
-/*
-    searchSpotify(input) {
-      Spotify.search(input).then(items => {
-        this.setState({items: items});
-    }
-*/
-
     search() {
-        this.setState({items: this.props.onSearch});
+        //this.setState({items: this.props.onSearch});
+        this.props.onSearch(this.state.items);
     }
 
     handleTermChange(e) {

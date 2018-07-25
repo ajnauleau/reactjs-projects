@@ -1,8 +1,6 @@
 
 import React, { Component } from 'react';
 import './Results.css';
-import Search from '../Search/Search.js';
-import Spotify from '../../utility/Spotify.js';
 import Tracklist from '../Tracklist/Tracklist.js'
 
 class Results extends Component {
@@ -11,6 +9,11 @@ class Results extends Component {
     this.state = {
       searchResults: this.props.searchResults
     };
+    this.renderSearchResults = this.renderSearchResults.bind(this);
+  }
+
+  renderSearchResults() {
+    this.setState({searchResults: this.props.searchResults});
   }
 
   render() {
@@ -20,11 +23,12 @@ class Results extends Component {
 
         <Tracklist tracks={this.state.searchResults}
            onAdd={this.props.onAdd} isRemoval={false} />
-        //Could be this.props.searchResults ^^
+
 
       </div>
     );
   }
 };
+//Could be this.props.searchResults ^^
 
 export default Results;

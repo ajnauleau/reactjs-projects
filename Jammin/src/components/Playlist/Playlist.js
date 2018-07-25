@@ -10,7 +10,7 @@ class Playlist extends Component {
       playlistTracks: this.props.playlistTracks
     };
     //this.CreateThePlaylist = this.CreateThePlaylist.bind(this);
-    this.ChangesNamePlaylist = this.ChangesNamePlaylist.bind(this);
+    this.ChangesNameOfPlaylist = this.ChangesNameOfPlaylist.bind(this);
     //this.AddToPlaylist = this.AddToPlaylist.bind(this);
     //this.RemoveFromPlaylist = this.RemoveFromPlaylist.bind(this);
   }

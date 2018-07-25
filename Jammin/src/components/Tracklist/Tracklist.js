@@ -12,10 +12,20 @@ class Tracklist extends Component {
   }
 
   renderTracks() {
-    this.setState({ tracks: this.props.tracks });
+    if(this.props.playlistTracks) {
+      this.setState({ tracks: this.props.playlistTracks });
+    } else { this.setState({ tracks: this.props.tracks });
+    }
   }
 
+//this.props.playlistTracks not sure ^^
+
+
+
   render() {
+
+if(this.state.tracks) {
+
     return (
       <div className="Tracklist">
         {
@@ -28,10 +38,30 @@ class Tracklist extends Component {
             isRemoval={this.props.isRemoval}
           />
         })
-      }
+       }
       </div>
     );
-  }
+
+} else {
+
+    return (
+      <div className="Tracklist">
+          <Track
+            track='Hey there deliala'
+            key='33'
+            onAdd={this.props.onAdd}
+            onRemove={this.props.onRemove}
+            isRemoval={this.props.isRemoval}
+          />
+      </div>
+    );
 }
+
+  }
+
+}
+
+
+// could be this.props.tracks
 
 export default Tracklist;

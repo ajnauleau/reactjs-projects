@@ -1,11 +1,14 @@
+
 import ClientID from '../.private/ClientID.js';
 
 let accessToken = '';
-const expiresIn = '';
-const url = 'https://accounts.spotify.com/authorize';
 
 const Spotify = {
+
   getAccessToken() {
+
+    const url = 'https://accounts.spotify.com/authorize';
+
     if (accessToken !== '') {
       console.log('Access token was already set.');
       return accessToken;
@@ -25,58 +28,27 @@ const Spotify = {
       let expiresIn = Number(expiresInArray[1]);
       window.setTimeout(() => (accessToken = ''), expiresIn * 1000);
       window.history.pushState('Access Token', null, '/');
-
-      const accessParams = {
-        accessToken: accessToken,
-        expiresIn: expiresIn
-      };
-
       return accessToken;
+
     } else {
-      const scopes =
-        'user-read-private playlist-read-private playlist-modify-public playlist-modify-private playlist-read-collaborative';
-      const redirectURI = 'http://collective.surge.sh'; //'http://localhost:3000/'
-      const requestURL =
-        url +
-        '?response_type=token' +
-        '&client_id=' +
-        ClientID +
-        (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
-        '&redirect_uri=' +
-        encodeURIComponent(redirectURI);
 
-      //window.location = requestURL; // 'https://accounts.spotify.com/authorize
-      // ?client_id=ClientID&response_type=token&scope=playlist-modify-public&redirect_uri=redirect_URI'
+      console.log('Redirect to authorize.');
+      const redirectURI = 'https://collective.surge.sh';
+      const endpoint = `https://accounts.spotify.com/authorize?client_id=${ClientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`;
+      window.location = endpoint;
+      return false;
 
-      try {
-        const response = fetch(requestURL); //await
-
-        if (response.ok) {
-          const jsonResponse = response.json(); //await
-          const parsedAccessToken = jsonResponse.match(
-            '/access_token=([^&]*)/'
-          );
-
-          return (accessToken = parsedAccessToken[1]);
-        }
-
-        throw new Error('Request Failed');
-      } catch (error) {
-        console.log(error);
-      }
     }
   },
 
   async search(input) {
-    const url = `https://api.spotify.com/v1/search?q=${input}\
-      &type=track&limit=33`;
-    const apiKey = accessToken;
+    const url = `https://api.spotify.com/v1/search?q=${input}&type=track&limit=33`;
+    const apiKey = this.getAccessToken();
     return fetch(url, {
       headers: {
         Authorization: `Bearer ${apiKey}`
       }
-    })
-      .then(response => {
+    }).then(response => {
         response.json();
       })
       .then(jsonResponse => {
@@ -100,15 +72,42 @@ const Spotify = {
       });
   },
 
+  getUserID() {
+    const apiKey = this.getAccessToken();
+    let UserID = '';
+
+    const urlUserEndpoint = 'https://api.spotify.com/v1/me';
+    fetch(urlUserEndpoint, {
+      headers: {
+        Authorization: `Bearer ${apiKey}`
+      }
+    })
+      .then(
+        response => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error('Request failed!');
+        },
+        networkError => {
+          console.log(networkError.message);
+        }
+      )
+      .then(jsonResponse => {
+        UserID = jsonResponse.id;
+        return UserID;
+      });
+  },
+
   async savePlaylist(playlistName, URIs) {
-    if (playlistName && URIs == true) {
+    if (playlistName && URIs === true) {
       const apiKey = this.getAccessToken();
-      const headers = { Authorization: `Bearer ${apiKey}` };
+      //const headers = { Authorization: `Bearer ${apiKey}` };
       let UserID = '';
       let PlaylistID = '';
 
-      const url = 'https://api.spotify.com/v1/me';
-      fetch(url, {
+      const urlUserEndpoint = 'https://api.spotify.com/v1/me';
+      fetch(urlUserEndpoint, {
         headers: {
           Authorization: `Bearer ${apiKey}`
         }
@@ -129,11 +128,9 @@ const Spotify = {
           return jsonResponse.display_name;
         });
 
-      async function createdNewPlaylist(playlistName) {
-        const url = `https://api.spotify.com/v1/\
-        users/${UserID}/playlists`;
+      const urlPlaylistEndpoint = `https://api.spotify.com/v1/users/${UserID}/playlists`;
         try {
-          const response = await fetch(url, {
+          const response = await fetch(urlPlaylistEndpoint, {
             method: 'POST',
             body: {
               name: playlistName,
@@ -146,20 +143,17 @@ const Spotify = {
           });
           if (response.ok) {
             const jsonResponse = await response.json();
-            const PlaylistID = jsonResponse.id;
+            PlaylistID = jsonResponse.id;
             return jsonResponse;
           }
           throw new Error('Request Failed!');
         } catch (error) {
           console.log(error);
         }
-      }
 
-      async function updatedPlaylistTracks(URIs) {
-        const url = `https://api.spotify.com/v1/\
-          users/${UserID}/playlists/${PlaylistID}/tracks`;
+      const urlTracksEndpoint = `https://api.spotify.com/v1/users/${UserID}/playlists/${PlaylistID}/tracks`;
         try {
-          const response = await fetch(url, {
+          const response = await fetch(urlTracksEndpoint, {
             method: 'POST',
             body: URIs,
             headers: {
@@ -175,64 +169,69 @@ const Spotify = {
         } catch (error) {
           console.log(error);
         }
-      }
 
-      async function updatedPlaylistName(playlistName) {
-        const url = `https://api.spotify.com/v1/\
-          users/${UserID}/playlists/${PlaylistID}`;
-        try {
-          const response = await fetch('url', {
-            method: 'PUT',
-            body: {
-              name: playlistName,
-              public: false
-            },
-            headers: {
-              Authorization: `Bearer ${apiKey}`,
-              'Content-Type': 'application/json'
-            }
-          });
-          if (response.ok) {
-            const jsonResponse = await response.json();
-            return jsonResponse;
-          }
-          throw new Error('Request Failed!');
-        } catch (error) {
-          console.log(error);
-        }
-      }
+      return PlaylistID;
 
-      async function RemoveFromPlaylist(URIs) {
-        const url = `https://api.spotify.com/v1/\
-          users/${UserID}/playlists/${PlaylistID}`;
-        try {
-          const arrayURIs = [];
-          URIs.map(uri => {
-            arrayURIs.push({
-              uri: uri
-            });
-          });
-          const response = await fetch('url', {
-            method: 'DELETE',
-            body: {
-              tracks: arrayURIs
-            },
-            headers: {
-              Authorization: `Bearer ${apiKey}`,
-              'Content-Type': 'application/json'
-            }
-          });
-          if (response.ok) {
-            const jsonResponse = await response.json();
-            return jsonResponse;
-          }
-          throw new Error('Request Failed!');
-        } catch (error) {
-          console.log(error);
-        }
-      }
     } else {
       return;
+    }
+  },
+
+  async updatedPlaylistName(playlistName, PlaylistID) {
+    const apiKey = this.getAccessToken();
+    const UserID = this.getUserID();
+    const url = `https://api.spotify.com/v1/users/${UserID}/playlists/${PlaylistID}`;
+    try {
+      const response = await fetch(url, {
+        method: 'PUT',
+        body: {
+          name: playlistName,
+          public: false
+        },
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          'Content-Type': 'application/json'
+        }
+      });
+      if (response.ok) {
+        const jsonResponse = await response.json();
+        return jsonResponse;
+      }
+      throw new Error('Request Failed!');
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  async RemoveFromPlaylist(URIs, PlaylistID) {
+    const apiKey = this.getAccessToken();
+    const UserID = this.getUserID();
+    const url = `https://api.spotify.com/v1/users/${UserID}/playlists/${PlaylistID}`;
+    try {
+      const arrayURIs = [];
+      URIs.map(uri => {
+        arrayURIs.push({
+          uri: uri
+        });
+        return arrayURIs; //Not needed?
+      });
+      const response = await fetch(url, {
+        method: 'DELETE',
+        body: {
+          tracks: arrayURIs
+        },
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          'Content-Type': 'application/json'
+        }
+      });
+      if (response.ok) {
+        const jsonResponse = await response.json();
+        return jsonResponse;
+      }
+      throw new Error('Request Failed!');
+    } catch (error) {
+      console.log(error);
     }
   }
 };

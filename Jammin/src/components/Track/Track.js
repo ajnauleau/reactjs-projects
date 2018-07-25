@@ -10,15 +10,20 @@ class Track extends Component {
       trackName: this.props.track.name,
       trackAlbum: this.props.track.album
     };
-    //this.fetchTrack = this.fetchTrack.bind(this);
+    this.renderState = this.renderState.bind(this);
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
     //this.updateTrack = this.updateTrack.bind(this);
   }
 
-//  fetchTrack() {
-    //this.setState({:});
-//  }
+  renderState() {
+    this.setState({
+      trackKey: this.props.key,
+      trackArtist: this.props.track.artist,
+      trackName: this.props.track.name,
+      trackAlbum: this.props.track.album
+    });
+ }
 
   addTrack() {
     //this.setState({:});
@@ -36,9 +41,8 @@ class Track extends Component {
 
   renderAction(isRemoval) {
     return (isRemoval
-      ? '<a className="Track-action"\
-     onClick={this.removeTrack}>-</a>'
-      : '<a className="Track-action" onClick={this.addTrack}>+</a>');
+      ? <a className="Track-action" onClick={this.removeTrack}>-</a>
+      : <a className="Track-action" onClick={this.addTrack}>+</a>);
   }
 
   /*
@@ -54,18 +58,18 @@ class Track extends Component {
       <div className="Track">
         <div className="Track-information">
           <h3>
-            <p>{this.state.trackName}</p>
+            {this.state.trackName}
           </h3>
-          //Could be this.props.track ^^ >>
           <p>{this.state.trackArtist} | {this.state.trackAlbum}</p>
         </div>
         <a className="Track-action">
           {this.renderAction(this.props.isRemoval)}
         </a>
-        //simply this.renderAction
+
       </div>
     );
   }
 };
-
+//simply this.renderAction
+//Could be this.props.track ^^ >>}
 export default Track;

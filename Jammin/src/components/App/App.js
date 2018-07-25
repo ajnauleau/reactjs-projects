@@ -1,5 +1,5 @@
+
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Spotify from '../../utility/Spotify.js';
 import Playlist from '../Playlist/Playlist.js';
@@ -10,24 +10,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchResults: [
-        {
-          id: [],
-          name: [],
-          artist: [],
-          album: []
-        }
-      ],
+      searchResults: [],
       playlistName: 'New Playlist',
-      playlistTracks: [
-        {
-          id: [],
-          uri: [],
-          name: [],
-          artist: [],
-          album: []
-      }
-      ]
+      playlistTracks: []
     };
     //this.fetchTrack = this.fetchTrack.bind(this);
     this.addTrack = this.addTrack.bind(this);
@@ -37,9 +22,6 @@ class App extends Component {
     this.search = this.search.bind(this);
   }
 
-  //fetchTrack() {
-  //this.setState({:});
-  //}
 
   addTrack(track) {
     if (
@@ -94,12 +76,7 @@ class App extends Component {
           Col<span class="highlight">lec</span>tive
         </h1>
         <div className="App">
-          <Search
-            artist={this.state.artist}
-            track={this.state.track}
-            album={this.state.album}
-            input={this.state.input}
-            onSearch={this.search()}
+          <Search onSearch={this.search()}
           />
 
           <p className="App-intro">
@@ -109,16 +86,16 @@ class App extends Component {
           <div className="App-playlist">
             <Results
               searchResults={this.state.searchResults}
-              onAdd={this.addTrack()}
+              onAdd={this.addTrack}
             />
 
             <Playlist
               playlistName={this.state.playlistName}
               playlistTracks={this.state.playlistTracks}
-              onRemove={this.removeTrack()}
-              onUpdate={this.updateTrack()}
-              onNameChange={this.updateName()}
-              onSave={this.savePlaylist()}
+              onRemove={this.removeTrack}
+              onUpdate={this.updateName}
+              onNameChange={this.updateName}
+              onSave={this.savePlaylist}
             />
           </div>
         </div>
@@ -126,5 +103,8 @@ class App extends Component {
     );
   }
 }
+
+//this.addTrack()
+//this.removeTrack()
 
 export default App;
