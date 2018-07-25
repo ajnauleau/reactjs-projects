@@ -14,14 +14,12 @@ class App extends Component {
       playlistName: 'New Playlist',
       playlistTracks: []
     };
-    //this.fetchTrack = this.fetchTrack.bind(this);
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
     this.updateName = this.updateName.bind(this);
     this.savePlaylist = this.savePlaylist.bind(this);
     this.search = this.search.bind(this);
   }
-
 
   addTrack(track) {
     if (
@@ -103,8 +101,5 @@ class App extends Component {
     );
   }
 }
-
-//this.addTrack()
-//this.removeTrack()
 
 export default App;
