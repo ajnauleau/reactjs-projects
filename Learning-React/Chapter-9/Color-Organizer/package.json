@@ -1,0 +1,34 @@
+{
+  "name": "starrating",
+  "version": "1.0.0",
+  "description": "Star Rating",
+  "main": "index.js",
+  "dependencies": {
+    "create-react-class": "^15.6.3",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-scripts": "^3.1.1",
+    "redux": "^4.0.4",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha",
+    "start": "react-scripts start"
+  },
+  "author": "ajnauleau <antoine@nauleau.io>",
+  "license": "ISC",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
