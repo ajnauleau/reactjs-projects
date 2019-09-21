@@ -1,0 +1,46 @@
+Arguments: 
+  /usr/local/Cellar/node/12.10.0/bin/node /usr/local/Cellar/yarn/1.17.3/libexec/bin/yarn.js start
+
+PATH: 
+  /Users/Antoine/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/Users/Antoine/Library/Python/3.6/bin/:/usr/local/MacGPG2/bin:/Applications/Wireshark.app/Contents/MacOS
+
+Yarn version: 
+  1.17.3
+
+Node version: 
+  12.10.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/Antoine/Developer/Code/React-js/Learning-React/starRating/package.json: Unexpected string in JSON at position 168
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.17.3/libexec/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.17.3/libexec/lib/cli.js:304:30)
+      at /usr/local/Cellar/yarn/1.17.3/libexec/lib/cli.js:315:13
+
+npm manifest: 
+  {
+    "name": "starrating",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+      "start": "index.js"
+    },
+    "author": "ajnauleau <antoine@nauleau.io>",
+    "license": "ISC",
+    "dependencies": {
+      "react": "^16.9.0",
+      "react-dom": "^16.9.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
