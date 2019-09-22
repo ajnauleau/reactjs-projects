@@ -9,8 +9,8 @@ import { Colors, NewColor } from './containers/containers';
 
 const App = () =>
     <div className="app">
-        <Colors />
         <NewColor />
+        <Colors />
     </div>
 
 export default App;

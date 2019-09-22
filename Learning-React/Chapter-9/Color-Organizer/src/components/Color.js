@@ -16,6 +16,7 @@ export class Color extends Component {
                 </button>
                 <div className="color"
                      style={{ backgroundColor: color }}>
+                       *
                 </div>
                 <div>
                     <StarRating starsSelected={rating} onRate={onRate}/>
