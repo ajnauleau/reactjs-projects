@@ -1,5 +1,6 @@
 import React from 'react';
 import {Color} from './Color';
+import { PropTypes } from 'prop-types';
 import { rateColor, removeColor } from "../actions";
 import { sortFunction } from "../lib/array-helpers";
 
@@ -22,3 +23,6 @@ export const ColorList = ({store}) => {
         </div>
     )
 }
+
+
+

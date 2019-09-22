@@ -12,6 +12,11 @@ import {sortFunction} from "../lib/array-helpers";
 
 export class App extends Component {
 
+    static childContextTypes = {
+        store: PropTypes.object.isRequired
+    }
+
+
     getChildContext() {
         return {
             store: this.props.store
@@ -19,7 +24,7 @@ export class App extends Component {
     }
 
     componentWillMount() {
-        this.unsubscribe = store.subscribe(
+        this.unsubscribe = this.props.store.subscribe(
             () => this.forceUpdate()
         )
     }
@@ -29,22 +34,20 @@ export class App extends Component {
     }
 
     render() {
-        const { colors, sort } = store.getState()
+        const store = this.props.store
+        const { colors, sort } = this.props.store.getState()
         const sortedColors = [...colors].sort(sortFunction(sort))
+        console.log(sortedColors);
         return (
             <div className="app">
                 <AddColorForm />
-                <ColorList colors={sortedColors} />
+                <ColorList store={store} />
             </div>
         )
     }
 }
 
 App.propTypes = {
-    store: PropTypes.object.isRequired
-}
-
-App.childContextTypes = {
     store: PropTypes.object.isRequired
 }
 
