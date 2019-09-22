@@ -4,25 +4,26 @@ import { PropTypes } from 'prop-types';
 import { rateColor, removeColor } from "../actions";
 import { sortFunction } from "../lib/array-helpers";
 
-export const ColorList = ({store}) => {
-    const {colors, sort} = store.getState()
-    const sortedColors = [...colors].sort(sortFunction(sort))
-    return (
-        <div className="color-list">
-            {(colors.length === 0) ?
-                <p>No Colors Listed. (Add a Color)</p> :
-                sortedColors.map(color =>
-                    <Color key={color.id} {...color}
-                           onRate={(rating) => store.dispatch(
-                               rateColor(color.id, rating))}
-                           onRemove={() => store.dispatch(
-                               removeColor(color.id))}
-                    />
-                )
-            }
-        </div>
-    )
+export const ColorList = ({ colors=[], onRate=f=>f, onRemove=f=>f }) =>
+    <div className="color-list">
+        {(colors.length === 0) ?
+            <p>No Colors Listed. (Add a Color)</p> :
+            colors.map(color =>
+                <Color key={color.id}
+                       {...color}
+                       onRate={(rating) => onRate(color.id, rating)}
+                       onRemove={() => onRemove(color.id)} />
+            )
+        }
+    </div>
+
+ColorList.propTypes = {
+    colors: PropTypes.array,
+    onRate: PropTypes.func,
+    onRemove: PropTypes.func
 }
+
+export default ColorList;
 
 
 
