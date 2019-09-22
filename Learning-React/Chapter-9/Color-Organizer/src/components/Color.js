@@ -7,33 +7,38 @@ const { Component } = React;
 export class Color extends Component {
 
     render() {
-        const { store } = this.context
-        const { id, title, color, rating } = this.props;
+        const { title, color, rating, onRemove, onRate} = this.props
         return (
             <section className="color" style={this.style}>
                 <h1 ref="title">{title}</h1>
-                <button onClick={() =>
-                    store.dispatch(
-                        removeColor(id)
-                    )
-                }>X</button>
+                <button onClick={onRemove}>
+                    X
+                </button>
                 <div className="color"
                      style={{ backgroundColor: color }}>
-                    <p></p>
+                       <p></p>
                 </div>
                 <div>
-                    <StarRating starsSelected={rating}
-                                onRate={rating =>
-                                    store.dispatch(
-                                        rateColor(id, rating)
-                                        )
-                                    } />
+                    <StarRating starsSelected={rating} onRate={onRate}/>
                 </div>
             </section>
         )
     }
+
 }
 
-Color.contextTypes = {
-    store: PropTypes.object
+Color.propTypes = {
+    title: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+    rating: PropTypes.number,
+    onRemove: PropTypes.func,
+    onRate: PropTypes.func
 }
+
+Color.defaultProps = {
+    rating: 0,
+    onRemove: f=>f,
+    onRate: f=>f
+}
+
+export default Color
