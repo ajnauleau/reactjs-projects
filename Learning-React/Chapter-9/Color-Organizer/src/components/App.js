@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Component } from 'react';
+import { PropTypes } from 'prop-types';
 import { v4 } from 'uuid';
 
 import './App.css';
@@ -37,6 +38,10 @@ export class App extends Component {
             </div>
         )
     }
+}
+
+App.propTypes = {
+    store: PropTypes.object.isRequired
 }
 
 App.childContextTypes = {

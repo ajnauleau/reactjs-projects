@@ -17,8 +17,11 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Chapter-9/Color-Organizer/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+            <state relative-caret-position="285">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -26,11 +29,32 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Chapter-9/Color-Organizer/src/components/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
+            <state relative-caret-position="143">
+              <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
               <folding>
                 <element signature="e#1#27#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ColorList.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Chapter-9/Color-Organizer/src/components/ColorList.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddColorForm-stateless.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Chapter-9/Color-Organizer/src/components/AddColorForm-stateless.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -75,11 +99,11 @@
         <option value="$PROJECT_DIR$/Chapter-8/Color-Organizer/src/store/index.js" />
         <option value="$PROJECT_DIR$/Chapter-8/Color-Organizer/src/reducers/colorsReducer.js" />
         <option value="$PROJECT_DIR$/Chapter-6/Color-Form/src/index.js" />
-        <option value="$PROJECT_DIR$/Chapter-9/Color-Organizer/src/index.js" />
-        <option value="$PROJECT_DIR$/Chapter-9/Color-Organizer/src/components/AddColorForm-stateless.js" />
         <option value="$PROJECT_DIR$/Chapter-9/Color-Organizer/src/lib/array-helpers.js" />
         <option value="$PROJECT_DIR$/Chapter-9/Color-Organizer/src/lib/time-helpers.js" />
         <option value="$PROJECT_DIR$/Chapter-9/Color-Organizer/src/components/ColorList.js" />
+        <option value="$PROJECT_DIR$/Chapter-9/Color-Organizer/src/index.js" />
+        <option value="$PROJECT_DIR$/Chapter-9/Color-Organizer/src/components/AddColorForm-stateless.js" />
         <option value="$PROJECT_DIR$/Chapter-9/Color-Organizer/src/components/App.js" />
       </list>
     </option>
@@ -108,7 +132,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="12" />
-    <option name="y" value="40" />
+    <option name="y" value="24" />
     <option name="width" value="818" />
     <option name="height" value="992" />
   </component>
@@ -194,14 +218,6 @@
             <path>
               <item name="Learning-React" type="b2602c69:ProjectViewProjectNode" />
               <item name="Learning-React" type="462c0819:PsiDirectoryNode" />
-              <item name="Chapter-9" type="462c0819:PsiDirectoryNode" />
-              <item name="Color-Organizer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Learning-React" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Learning-React" type="462c0819:PsiDirectoryNode" />
               <item name="React-Boilerplate" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -260,25 +276,25 @@
       <workItem from="1568665562989" duration="4613000" />
       <workItem from="1568814571847" duration="176000" />
       <workItem from="1568814839457" duration="29501000" />
-      <workItem from="1569089021791" duration="589000" />
+      <workItem from="1569089021791" duration="5420000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35664000" />
+    <option name="totallyTimeSpent" value="40495000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="12" y="40" width="818" height="992" extended-state="0" />
+    <frame x="12" y="24" width="818" height="992" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24968633" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24968633" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.24581006" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.24581006" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -504,6 +520,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -540,13 +559,6 @@
     <entry file="file://$PROJECT_DIR$/Chapter-9/Color-Organizer/src/components/AddColorForm.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Chapter-9/Color-Organizer/src/components/AddColorForm-stateless.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Chapter-9/Color-Organizer/src/lib/time-helpers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="795">
@@ -574,24 +586,37 @@
     <entry file="file://$PROJECT_DIR$/Chapter-9/Color-Organizer/src/actions/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/Chapter-9/Color-Organizer/src/components/AddColorForm-stateless.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Chapter-9/Color-Organizer/src/components/ColorList.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Chapter-9/Color-Organizer/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        <state relative-caret-position="285">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Chapter-9/Color-Organizer/src/components/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
+        <state relative-caret-position="143">
+          <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
           <folding>
             <element signature="e#1#27#0" expanded="true" />
           </folding>
