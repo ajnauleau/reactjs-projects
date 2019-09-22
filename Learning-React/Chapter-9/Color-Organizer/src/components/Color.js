@@ -8,7 +8,7 @@ export class Color extends Component {
 
     render() {
         const { store } = this.context
-        const { id, title, color, rating, onRate } = this.props;
+        const { id, title, color, rating } = this.props;
         return (
             <section className="color" style={this.style}>
                 <h1 ref="title">{title}</h1>
