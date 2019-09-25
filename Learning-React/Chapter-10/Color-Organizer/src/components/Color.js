@@ -1,7 +1,6 @@
 import React from 'react';
-import {StarRating} from "./StarRating";
-import {rateColor, removeColor} from "../actions";
-import { PropTypes } from 'prop-types';
+import StarRating from "./StarRating";
+import PropTypes from 'prop-types';
 const { Component } = React;
 
 export class Color extends Component {
@@ -41,4 +40,4 @@ Color.defaultProps = {
     onRate: f=>f
 }
 
-export default Color
+export default Color;

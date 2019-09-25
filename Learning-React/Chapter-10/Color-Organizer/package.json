@@ -3,8 +3,28 @@
   "version": "1.0.0",
   "description": "Star Rating",
   "main": "index.js",
+  "jest": {
+    "setupFiles": [
+      "./__tests__/global.js"
+    ],
+    "modulePathIgnorePatterns": [
+      "global.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(css)$": "<rootDir>/node_modules/jest-css-modules"
+    },
+    "testPathIgnorePatterns" : [
+      "<rootDir>/__tests__/ignore"
+    ]
+  },
   "dependencies": {
+    "@babel/preset-env": "^7.6.0",
     "create-react-class": "^15.6.3",
+    "deep-freeze": "0.0.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.4.0",
+    "jsdom": "^15.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -13,10 +33,20 @@
     "redux": "^4.0.4",
     "uuid": "^3.3.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.9.0",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^24.8.0",
+    "jest-css-modules": "^2.1.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^16.9.0"
+  },
   "scripts": {
-    "test": "mocha",
-    "start": "react-scripts start"
+    "test": "jest",
+    "start": "react-scripts start",
+    "lint": "./node_modules/.bin/eslint ."
   },
   "author": "ajnauleau <antoine@nauleau.io>",
   "license": "ISC",

@@ -1,7 +1,7 @@
 
 import { connect } from 'react-redux'
 
-import { ColorList } from '../ColorList'
+import ColorList from '../ColorList'
 import {sortFunction} from "../../lib/array-helpers";
 import {rateColor, removeColor} from "../../actions";
 
@@ -24,3 +24,5 @@ export const Colors = connect(
     mapStateToProps,
     mapDispatchToProps
 )(ColorList)
+
+export default Colors;

@@ -14,14 +14,14 @@ export const addColor = (title, color) =>
 export const removeColor = id =>
     ({
         type: REMOVE_COLOR,
-        id
+        id,
     })
 
 export const rateColor = (id, rating) =>
     ({
         type: RATE_COLOR,
         id,
-        rating
+        rating,
     })
 
 export const sortColors = sortedBy =>

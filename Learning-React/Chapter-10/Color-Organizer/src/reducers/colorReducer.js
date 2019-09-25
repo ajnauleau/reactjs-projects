@@ -1,7 +1,7 @@
 
-import { ADD_COLOR, RATE_COLOR } from '../actions/constants';
+import { ADD_COLOR, RATE_COLOR, REMOVE_COLOR } from '../actions/constants';
 
-export const color = (state = {}, action) => {
+export const color = (state = {}, action={ type: null }) => {
 
     switch(action.type) {
         case ADD_COLOR:
@@ -19,6 +19,10 @@ export const color = (state = {}, action) => {
                     ...state,
                     rating: action.rating
                 }
+        case REMOVE_COLOR:
+            return (state.id !== action.id) ?
+                state :
+                { }
         default :
             return state
     }

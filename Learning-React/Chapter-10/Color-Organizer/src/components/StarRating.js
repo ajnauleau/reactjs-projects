@@ -1,5 +1,5 @@
 import React from 'react';
-import {Star} from "./Star";
+import Star from "./Star";
 
 export const StarRating = ({starsSelected=0, totalStars=5, onRate=f=>f}) =>
     <div className="star-rating">
@@ -13,3 +13,5 @@ export const StarRating = ({starsSelected=0, totalStars=5, onRate=f=>f}) =>
         </div>
         <p>{starsSelected} of {totalStars} stars </p>
     </div>
+
+export default StarRating

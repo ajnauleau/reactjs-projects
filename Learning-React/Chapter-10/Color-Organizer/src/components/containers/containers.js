@@ -1,9 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { PropTypes } from 'prop-types'
-import { AddColorForm } from '../AddColorForm-stateless'
-import { ColorList } from '../ColorList'
-import { addColor, sortColors, rateColor, removeColor } from '../../actions'
+import AddColorForm from '../AddColorForm-stateless'
+import ColorList from '../ColorList'
+import { addColor, rateColor, removeColor } from '../../actions'
 import {sortFunction} from "../../lib/array-helpers";
 
 export const NewColor = connect(
@@ -31,3 +30,5 @@ export const Colors = connect(
             }
         })
 )(ColorList)
+
+export default Colors;

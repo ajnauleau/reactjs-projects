@@ -10,3 +10,5 @@ Star.propTypes = {
     selected: PropTypes.bool,
     onClick: PropTypes.func
 }
+
+export default Star;
