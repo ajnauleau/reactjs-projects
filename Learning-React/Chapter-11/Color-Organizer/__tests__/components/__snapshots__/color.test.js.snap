@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Color /> UI Component Renders correct properties 1`] = `
+<section
+  className="color"
+>
+  <h1>
+    Test Color
+  </h1>
+  <button
+    onClick={[Function]}
+  >
+    X
+  </button>
+  <div
+    className="color"
+    style={
+      Object {
+        "backgroundColor": "#F0F0F0",
+      }
+    }
+  >
+    <p />
+  </div>
+  <div>
+    <StarRating
+      onRate={[Function]}
+      starsSelected={3}
+    />
+  </div>
+</section>
+`;
