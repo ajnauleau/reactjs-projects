@@ -1,0 +1,78 @@
+{
+  "name": "starrating",
+  "version": "1.0.0",
+  "description": "Star Rating",
+  "main": "index.js",
+  "jest": {
+    "setupFiles": [
+      "./__tests__/global.js"
+    ],
+    "modulePathIgnorePatterns": [
+      "global.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(css)$": "<rootDir>/node_modules/jest-css-modules"
+    },
+    "testPathIgnorePatterns": [
+      "<rootDir>/__tests__/ignore"
+    ]
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.6.2",
+    "babel-node": "0.0.1-security",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "body-parser": "^1.19.0",
+    "create-react-class": "^15.6.3",
+    "deep-freeze": "0.0.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.4.0",
+    "ignore-styles": "^5.0.1",
+    "jsdom": "^15.1.1",
+    "mini-css-extract-plugin": "^0.8.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-redux": "^7.1.1",
+    "react-router-dom": "^5.1.0",
+    "react-scripts": "^3.1.1",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/node": "^7.6.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.9.0",
+    "babel-preset-env": "^1.7.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "jest": "^24.8.0",
+    "jest-css-modules": "^2.1.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^16.9.0",
+    "webpack-cli": "^3.3.9"
+  },
+  "scripts": {
+    "test": "jest",
+    "lint": "./node_modules/.bin/eslint .",
+    "build": "webpack --progress",
+    "prestart": "npm run build",
+    "start": "npx babel-node ./src/server"
+  },
+  "author": "ajnauleau <antoine@nauleau.io>",
+  "license": "ISC",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

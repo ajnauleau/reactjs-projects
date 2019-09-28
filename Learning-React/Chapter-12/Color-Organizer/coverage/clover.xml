@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1569432108656" clover="3.2.0">
+  <project timestamp="1569432108656" name="All files">
+    <metrics statements="78" coveredstatements="75" conditionals="46" coveredconditionals="37" methods="40" coveredmethods="36" elements="164" coveredelements="148" complexity="0" loc="78" ncloc="78" packages="6" files="12" classes="12"/>
+    <package name="actions">
+      <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
+      <file name="constants.js" path="/Users/Antoine/Developer/Code/React-js/Learning-React/Chapter-10/Component-Organizer/src/actions/constants.js">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+      </file>
+      <file name="index.js" path="/Users/Antoine/Developer/Code/React-js/Learning-React/Chapter-10/Component-Organizer/src/actions/index.js">
+        <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="28" count="3" type="cond" truecount="2" falsecount="0"/>
+      </file>
+    </package>
+    <package name="components">
+      <metrics statements="20" coveredstatements="20" conditionals="12" coveredconditionals="10" methods="15" coveredmethods="14"/>
+      <file name="Component.jst.js" path="/Users/Antoine/Developer/Code/React-js/Learning-React/Chapter-10/Component-Organizer/src/components/Componentnent.js">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+      </file>
+      <file name="ColorList.js" path="/Users/Antoine/Developer/Code/React-js/Learning-React/Chapter-10/Component-Organizer/src/components/ColorList.js">
+        <metrics statements="6" coveredstatements="6" conditionals="5" coveredconditionals="5" methods="6" coveredmethods="6"/>
+        <line num="5" count="1" type="cond" truecount="3" falsecount="0"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="10" count="15" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+      </file>
+      <file name="Star.js" path="/Users/Antoine/Developer/Code/React-js/Learning-React/Chapter-10/Component-Organizer/src/components/Star.js">
+        <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="4" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="19" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="2" type="stmt"/>
+      </file>
+      <file name="StarRating.js" path="/Users/Antoine/Developer/Code/React-js/Learning-React/Chapter-10/Component-Organizer/src/components/StarRating.js">
+        <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="1" methods="4" coveredmethods="3"/>
+        <line num="4" count="1" type="cond" truecount="1" falsecount="2"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="8" count="15" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.containers">
+      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="Colors.js" path="/Users/Antoine/Developer/Code/React-js/Learning-React/Chapter-10/Component-Organizer/src/components/containers/Colors.js">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="lib">
+      <metrics statements="7" coveredstatements="5" conditionals="9" coveredconditionals="3" methods="5" coveredmethods="3"/>
+      <file name="array-helpers.js" path="/Users/Antoine/Developer/Code/React-js/Learning-React/Chapter-10/Component-Organizer/src/lib/array-helpers.js">
+        <metrics statements="7" coveredstatements="5" conditionals="9" coveredconditionals="3" methods="5" coveredmethods="3"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="2" type="cond" truecount="1" falsecount="2"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="6" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="2" type="cond" truecount="1" falsecount="1"/>
+      </file>
+    </package>
+    <package name="reducers">
+      <metrics statements="18" coveredstatements="17" conditionals="18" coveredconditionals="17" methods="5" coveredmethods="4"/>
+      <file name="colorReducer.js" path="/Users/Antoine/Developer/Code/React-js/Learning-React/Chapter-10/Component-Organizer/src/reducers/colorReducer.js">
+        <metrics statements="6" coveredstatements="6" conditionals="10" coveredconditionals="9" methods="1" coveredmethods="1"/>
+        <line num="4" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="9" type="cond" truecount="4" falsecount="0"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="16" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="27" count="1" type="stmt"/>
+      </file>
+      <file name="colorsReducer.js" path="/Users/Antoine/Developer/Code/React-js/Learning-React/Chapter-10/Component-Organizer/src/reducers/colorsReducer.js">
+        <metrics statements="8" coveredstatements="7" conditionals="5" coveredconditionals="5" methods="3" coveredmethods="2"/>
+        <line num="5" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="6" count="18" type="cond" truecount="4" falsecount="0"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="21" count="15" type="stmt"/>
+      </file>
+      <file name="sortReducer.js" path="/Users/Antoine/Developer/Code/React-js/Learning-React/Chapter-10/Component-Organizer/src/reducers/sortReducer.js">
+        <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="5" count="18" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="9" count="15" type="stmt"/>
+      </file>
+    </package>
+    <package name="store">
+      <metrics statements="14" coveredstatements="14" conditionals="3" coveredconditionals="3" methods="7" coveredmethods="7"/>
+      <file name="index.js" path="/Users/Antoine/Developer/Code/React-js/Learning-React/Chapter-10/Component-Organizer/src/store/index.js">
+        <metrics statements="14" coveredstatements="14" conditionals="3" coveredconditionals="3" methods="7" coveredmethods="7"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="12" count="6" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+        <line num="14" count="6" type="stmt"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="19" count="6" type="stmt"/>
+        <line num="20" count="6" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="24" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="25" count="4" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
