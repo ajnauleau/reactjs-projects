@@ -29,30 +29,27 @@ module.exports = {
                 test: /\.css$/,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader
-                    },
-
-                    {
-                        loader: "css-loader",
+                        loader: MiniCssExtractPlugin.loader,
                         options: {
-                            sourceMap: true,
-                            modules: true,
-                            localIdentName: "[local]___[hash:base64:5]"
-                        }
+                            // you can specify a publicPath here
+                            // by default it uses publicPath in webpackOptions.output
+                            publicPath: '../',
+                            hmr: process.env.NODE_ENV === 'development',
+                        },
                     },
-
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            options: {},
-                        }
-                    }
-                ]
+                    'css-loader',
+                ],
             },
         ]
     },
     target: "node",
     plugins: [
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // all options are optional
+            filename: '[name].css',
+            chunkFilename: '[id].css',
+            ignoreOrder: false, // Enable to remove warnings about conflicting order
+        }),
     ],
 }

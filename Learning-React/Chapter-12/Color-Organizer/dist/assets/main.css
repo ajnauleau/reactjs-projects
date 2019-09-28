@@ -1,5 +1,5 @@
 
-.star___1tMec {
+.star {
     cursor: pointer;
     height: 25px;
     width: 25px;
@@ -20,7 +20,7 @@
     );
 }
 
-.star-selected___1sPZd {
+.star-selected {
     cursor: pointer;
     height: 25px;
     width: 25px;
@@ -47,7 +47,7 @@ p {
     display: block;
 }
 
-.color-list___3w-rA {
+.color-list {
     display: grid;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
 }
@@ -57,12 +57,12 @@ section {
     margin: 22px;
 }
 
-.color___NjSBU {
+.color {
     text-align: center;
     width: 100%;
 }
 
-.star-rating___2iDix {
+.star-rating {
     display: flex;
     flex-direction: column;
     align-items: center;
