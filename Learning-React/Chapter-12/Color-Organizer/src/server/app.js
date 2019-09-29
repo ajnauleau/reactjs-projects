@@ -18,7 +18,7 @@ const serverStore = storeFactory(true, initialState)
 
 serverStore.subscribe(() =>
     fs.writeFile(
-        path.join(__dirname, '../data/initialState.json'),
+        path.join(__dirname, '../data/initial-state.json'),
         JSON.stringify(serverStore.getState()),
         error => (error) ? console.log("Error saving state!", error) : null
     )
@@ -38,7 +38,7 @@ const buildHTMLPage = ({html, state, css}) => `
         <script>
             window.__INITIAL_STATE__ = ${JSON.stringify(state)}
         </script>
-        <script src="/bundle.js"></script>
+        <script src="./bundle.js"></script>
     </body>
 </html>
 `

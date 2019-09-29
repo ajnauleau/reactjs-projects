@@ -2,7 +2,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom'
 import { PropTypes } from 'prop-types';
-import { v4 } from 'uuid';
+/*import { v4 } from 'uuid';*/
 
 import './App.css';
 
